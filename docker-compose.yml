@@ -8,6 +8,10 @@ services:
       - ./api/mediafiles:/home/app/web/mediafiles
     ports:
       - 8000:8000
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/payment_db
+    depends_on:
+      - db
   front:
     build:
       context: ./front
@@ -21,5 +25,19 @@ services:
       - HOST=0.0.0.0
     depends_on:
       - api
+  db:
+    image: postgres:latest
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: payment_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - default
+
 volumes:
   postgres_data:
