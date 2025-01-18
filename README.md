@@ -109,11 +109,11 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 
 - Refuerza validaciones en el modelo de Pagos:
   - [x] Implementa validación para asegurar que el monto sea positivo
-  - [ ] Verifica que los códigos de país sean ISO válidos
+  - [x] Verifica que los códigos de país sean ISO válidos
   - [ ] Valida que los códigos de moneda sean ISO válidos
   - [ ] Asegúrate de que el país origen y destino sean diferentes
 - Optimiza Modelos:
-  - [ ] Revisa y ajusta los tipos de datos en los modelos para mayor eficiencia
+  - [x] Revisa y ajusta los tipos de datos en los modelos para mayor eficiencia
 - Implementa Sistema de Cambio de Divisas:
   - [ ] Integra una librería de conversión de divisas (ej. Forex-Python)
   - [ ] Crea un servicio para manejar las conversiones de moneda en tiempo real
