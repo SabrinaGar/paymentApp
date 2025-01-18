@@ -108,7 +108,7 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 ### 🔧 Backend
 
 - Refuerza validaciones en el modelo de Pagos:
-  - [ ] Implementa validación para asegurar que el monto sea positivo
+  - [x] Implementa validación para asegurar que el monto sea positivo
   - [ ] Verifica que los códigos de país sean ISO válidos
   - [ ] Valida que los códigos de moneda sean ISO válidos
   - [ ] Asegúrate de que el país origen y destino sean diferentes
