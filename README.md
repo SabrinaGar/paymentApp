@@ -15,20 +15,24 @@ Como nuevo responsable principal de este proyecto, tu tarea es mejorar y complet
 ### 📝 Plan de Acción
 
 1. 🏁 Inicialización del Repositorio:
+
    - Crea un nuevo repositorio en GitHub o similar.
    - Sube el código actual a la rama base.
    - Crea una nueva rama de desarrollo.
 
 2. 🔍 Evaluación y Planificación:
+
    - Revisa exhaustivamente el código existente y la arquitectura del proyecto.
    - Identifica áreas de mejora y posibles cambios en la infraestructura o tecnologías utilizadas.
    - Prioriza las tareas pendientes basándote en su impacto y complejidad.
 
 3. 🛠️ Implementación de Mejoras:
+
    - Aborda las tareas pendientes en la lista, enfocándote en lo que consideres más importante.
    - Considera la posibilidad de reescribir partes del proyecto si identificas una mejor aproximación.
 
 4. 🔒 Mantenimiento de la Funcionalidad Core:
+
    - Asegúrate de que todas las mejoras y cambios mantengan el enfoque principal en la funcionalidad de gestión de pagos.
 
 5. 📚 Documentación y Pruebas:
@@ -71,14 +75,16 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 ## 📋 Lista de Tareas
 
 ### 🏗️ Infraestructura
-- [ ] Configura PostgreSQL con Docker:
+
+- [x] Configura PostgreSQL con Docker:
   - Crea un contenedor Docker para PostgreSQL
   - Configura las variables de entorno necesarias
-- [ ] Integra Django con PostgreSQL:
+- [x] Integra Django con PostgreSQL:
   - Modifica la configuración de Django para usar PostgreSQL
   - Realiza las migraciones necesarias
 
 ### 🎨 Frontend
+
 - Implementa Navbar:
   - [ ] Diseña y crea un navbar responsive con los enlaces principales
   - [ ] Reemplaza los botones de navegación existentes por el nuevo navbar
@@ -100,6 +106,7 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
   - [ ] Implementa tests unitarios y de integración con Cypress
 
 ### 🔧 Backend
+
 - Refuerza validaciones en el modelo de Pagos:
   - [ ] Implementa validación para asegurar que el monto sea positivo
   - [ ] Verifica que los códigos de país sean ISO válidos
