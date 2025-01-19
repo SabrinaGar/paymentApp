@@ -21,22 +21,29 @@ class PaymentSerializer(serializers.ModelSerializer):
         Método de validación personalizado para realizar validaciones adicionales.
         """
         if data['source_amount'] <= 0:
-            raise serializers.ValidationError("El monto de origen debe ser un valor positivo.")
-        
+            raise serializers.ValidationError(
+                "El monto de origen debe ser un valor positivo."
+                )           
         if data['target_amount'] <= 0:
-            raise serializers.ValidationError("El monto de destino debe ser un valor positivo.")
-        
+            raise serializers.ValidationError(
+                "El monto de destino debe ser un valor positivo."
+                )               
         if not self.is_valid_country_code(data["source_country"]):
-            raise serializers.ValidationError(f"El código de país de origen {data['source_country']} no es válido.")
-        
+            raise serializers.ValidationError(
+                f"El código de país de origen {data['source_country']} no es válido."
+                )               
         if not self.is_valid_currency_code(data["source_currency"]):
-            raise serializers.ValidationError(f"El código de moneda de origen {data['source_currency']} no es válido.")
-        
+            raise serializers.ValidationError(
+                f"El código de moneda de origen {data['source_currency']} no es válido."
+                )       
         if not self.is_valid_country_code(data["target_country"]):
-            raise serializers.ValidationError(f"El código de país de destino {data['target_country']} no es válido.")
-        
+            raise serializers.ValidationError(
+                f"El código de país de destino {data['target_country']} no es válido."
+                )      
         if not self.is_valid_currency_code(data["target_currency"]):
-            raise serializers.ValidationError(f"El código de moneda de destino {data['target_currency']} no es válido.")
+            raise serializers.ValidationError(
+                f"El código de moneda de destino {data['target_currency']} no es válido."
+                )
 
         return data
 
@@ -66,8 +73,9 @@ class PaymentSerializer(serializers.ModelSerializer):
             iso2_codes = [country.get("Iso2") for country in data["data"] if country.get("Iso2")]
             return country_code in iso2_codes
         except requests.exceptions.RequestException as e:
-            raise serializers.ValidationError(f"No se verificó error el código de país debido a\
-                                              error en API: {e}")
+            raise serializers.ValidationError(
+                f"No se verificó error el código de país debido a error en API: {e}"
+                )
         except KeyError as e:
             raise serializers.ValidationError(f"Formato de respuesta inesperado: {e}")
         
@@ -93,7 +101,8 @@ class PaymentSerializer(serializers.ModelSerializer):
                 return True
             return False
         except requests.exceptions.RequestException as e:
-                raise serializers.ValidationError(f"No se verificó error el código de país debido a \
-                                                  error en API: {e}")
+                raise serializers.ValidationError(
+                    f"No se verificó error el código de país debido a error en API: {e}"
+                    )
         except KeyError as e:
                 raise serializers.ValidationError(f"Formato de respuesta inesperado: {e}")
