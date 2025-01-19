@@ -108,16 +108,16 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 ### 🔧 Backend
 
 - Refuerza validaciones en el modelo de Pagos:
-  - [ ] Implementa validación para asegurar que el monto sea positivo
-  - [ ] Verifica que los códigos de país sean ISO válidos
-  - [ ] Valida que los códigos de moneda sean ISO válidos
-  - [ ] Asegúrate de que el país origen y destino sean diferentes
+  - [x] Implementa validación para asegurar que el monto sea positivo
+  - [x] Verifica que los códigos de país sean ISO válidos
+  - [x] Valida que los códigos de moneda sean ISO válidos
+  - [x] Asegúrate de que el país origen y destino sean diferentes
 - Optimiza Modelos:
-  - [ ] Revisa y ajusta los tipos de datos en los modelos para mayor eficiencia
+  - [x] Revisa y ajusta los tipos de datos en los modelos para mayor eficiencia
 - Implementa Sistema de Cambio de Divisas:
-  - [ ] Integra una librería de conversión de divisas (ej. Forex-Python)
-  - [ ] Crea un servicio para manejar las conversiones de moneda en tiempo real
+  - [x] Integra una librería de conversión de divisas (ej. Forex-Python)
+  - [x] Crea un servicio para manejar las conversiones de moneda en tiempo real
 - Testing
-  - [ ] Repara bug tests de cantidad negativa
+  - [x] Repara bug tests de cantidad negativa
 
 Estas tareas están diseñadas para que mejores la funcionalidad, usabilidad y robustez de la aplicación de gestión de pagos, abordando aspectos clave tanto en el frontend como en el backend.
