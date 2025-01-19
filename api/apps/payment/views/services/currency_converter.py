@@ -1,9 +1,10 @@
 from forex_python.converter import CurrencyRates
 from forex_python.converter import RatesNotAvailableError
+from decimal import Decimal
 
 class CurrencyConverter:
     def __init__(self):
-        self.converter = CurrencyRates()
+        self.converter = CurrencyRates(force_decimal=True)
 
     def convert(self, amount, from_currency, to_currency):
         """
@@ -17,7 +18,7 @@ class CurrencyConverter:
         :raises: RatesNotAvailableError si no se pueden obtener las tasas de cambio.
         """
         try:
-            converted_amount = self.converter.convert(from_currency,to_currency,amount)
+            converted_amount = self.converter.convert(from_currency,to_currency,Decimal(amount))
             return converted_amount
         except RatesNotAvailableError as e:
             raise ValueError(
