@@ -110,7 +110,7 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 - Refuerza validaciones en el modelo de Pagos:
   - [x] Implementa validación para asegurar que el monto sea positivo
   - [x] Verifica que los códigos de país sean ISO válidos
-  - [ ] Valida que los códigos de moneda sean ISO válidos
+  - [x] Valida que los códigos de moneda sean ISO válidos
   - [ ] Asegúrate de que el país origen y destino sean diferentes
 - Optimiza Modelos:
   - [x] Revisa y ajusta los tipos de datos en los modelos para mayor eficiencia
