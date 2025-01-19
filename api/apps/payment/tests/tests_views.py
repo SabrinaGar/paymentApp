@@ -38,6 +38,7 @@ class PaymentViewsTest(TestCase):
     def test_create_invalid_payment(self):
         invalid_data = self.payment_data.copy()
         invalid_data['source_amount'] = Decimal('-100.00')
+        invalid_data['target_amount'] = Decimal('-85.00')
         response = self.client.post(
             reverse('payment-list'),
             data=json.dumps(invalid_data, cls=DecimalEncoder),
@@ -45,6 +46,7 @@ class PaymentViewsTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertIn('source_amount', response.json())
+        self.assertIn('target_amount', response.json())
 
     def test_get_payment_list(self):
         # Create a few payments first

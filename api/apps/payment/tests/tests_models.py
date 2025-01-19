@@ -26,6 +26,7 @@ class PaymentModelTest(TestCase):
     def test_negative_amount_validation(self):
         invalid_data = self.valid_payment_data.copy()
         invalid_data['source_amount'] = Decimal('-100.00')
+        invalid_data['target_amount'] = Decimal('-85.00')
         with self.assertRaises(ValidationError):
             payment = Payment(**invalid_data)
             payment.full_clean()

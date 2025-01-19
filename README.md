@@ -118,6 +118,6 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
   - [x] Integra una librería de conversión de divisas (ej. Forex-Python)
   - [x] Crea un servicio para manejar las conversiones de moneda en tiempo real
 - Testing
-  - [ ] Repara bug tests de cantidad negativa
+  - [x] Repara bug tests de cantidad negativa
 
 Estas tareas están diseñadas para que mejores la funcionalidad, usabilidad y robustez de la aplicación de gestión de pagos, abordando aspectos clave tanto en el frontend como en el backend.
