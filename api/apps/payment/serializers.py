@@ -44,6 +44,10 @@ class PaymentSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 f"El código de moneda de destino {data['target_currency']} no es válido."
                 )
+        if data["source_country"] == data["target_country"]:
+            raise serializers.ValidationError(
+                "El país de origen y el país de destino no pueden ser iguales."
+                )
 
         return data
 
