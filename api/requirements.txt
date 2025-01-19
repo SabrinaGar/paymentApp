@@ -24,3 +24,4 @@ coverage==7.2.7
 python-dotenv==0.21.0
 django-nose==1.4.7
 requests==2.32.3
+forex-python==1.8
