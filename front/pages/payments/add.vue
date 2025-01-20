@@ -48,42 +48,29 @@
             <label for="sourceCurrency" class="form-label">{{
               $t("source_currency")
             }}</label>
-            <input
-              type="text"
-              class="form-control"
-              id="sourceCurrency"
+            <CountrySelector
               v-model="payment.source_currency"
-              required
+              id="targetCountry"
+              label="target_country"
+              :countries="countries"
+              :loading="loading"
+              value-key="currency"
+              text-key="currency"
             />
           </div>
           <div class="col-md-4">
             <label for="sourceCountry" class="form-label">{{
               $t("source_country")
             }}</label>
-            <select
-              v-if="!loading"
+            <CountrySelector
               v-model="payment.source_country"
-              id="sourceCountry"
-              class="form-control"
-              required
-            >
-              <option value="" disabled selected>
-                {{ $t("select_country") }}
-              </option>
-              <template v-if="!loading">
-                <option
-                  v-for="country in countries"
-                  :key="country.iso"
-                  :value="country.iso"
-                >
-                  {{ country.country }}
-                </option>
-              </template>
-              <template v-else>
-                <p>{{ $t("loading_countries") }}</p>
-                <!-- Message displayed while loading -->
-              </template>
-            </select>
+              id="targetCountry"
+              label="target_country"
+              :countries="countries"
+              :loading="loading"
+              value-key="iso2"
+              text-key="name"
+            />
           </div>
         </div>
         <div class="row mb-3">
@@ -103,24 +90,29 @@
             <label for="targetCurrency" class="form-label">{{
               $t("target_currency")
             }}</label>
-            <input
-              type="text"
-              class="form-control"
-              id="targetCurrency"
+            <CountrySelector
               v-model="payment.target_currency"
-              required
+              id="targetCountry"
+              label="target_currency"
+              :countries="countries"
+              :loading="loading"
+              value-key="currency"
+              text-key="currency"
             />
           </div>
           <div class="col-md-4">
             <label for="targetCountry" class="form-label">{{
               $t("target_country")
             }}</label>
-            <input
-              type="text"
-              class="form-control"
-              id="targetCountry"
+
+            <CountrySelector
               v-model="payment.target_country"
-              required
+              id="targetCountry"
+              label="target_country"
+              :countries="countries"
+              :loading="loading"
+              value-key="iso2"
+              text-key="name"
             />
           </div>
         </div>
@@ -172,7 +164,8 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import axios from "axios";
+import CountrySelector from "../../components/CountrySelector.vue";
+import { getCountriesCurrencyAndIso } from "../../utils/client_api_countries";
 
 const { t } = useI18n();
 
@@ -190,31 +183,17 @@ const payment = ref({
 
 const alert = ref(null);
 const countries = ref([]); // Lista de países
-const loading = ref(true); // Estado de carg
-// Llamada a la API para obtener los países
-const fetchCountries = async () => {
-  console.log("fetchCountries is being called2!");
-  try {
-    const response = await axios.get(
-      "https://countriesnow.space/api/v0.1/countries/iso"
-    );
-    console.log("Response:", response.data.data);
-    countries.value = response.data.data.map((country) => ({
-      iso: country.Iso2, // Código ISO del país
-      country: country.name, // Nombre del país
-    }));
-    console.log("Countries:", countries.value[0]);
-  } catch (error) {
-    console.error("Error al obtener los países:", error);
-  } finally {
-    loading.value = false; // Stop loading after fetching data
-  }
-};
+const loading = ref(false); // Estado de carg
 
-// Llamar a la API al montar el componente
-onMounted(() => {
-  console.log("Component mounted!");
-  fetchCountries();
+onMounted(async () => {
+  try {
+    loading.value = true;
+    countries.value = await getCountriesCurrencyAndIso();
+  } catch (e) {
+    alert.value.error(e.message);
+  } finally {
+    loading.value = false;
+  }
 });
 const submitPayment = async () => {
   try {
