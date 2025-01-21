@@ -86,7 +86,7 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 ### 🎨 Frontend
 
 - Implementa Navbar:
-  - [ ] Diseña y crea un navbar responsive con los enlaces principales
+  - [x] Diseña y crea un navbar responsive con los enlaces principales
   - [ ] Reemplaza los botones de navegación existentes por el nuevo navbar
 - Mejora Componente de Alerta:
   - [ ] Crea un componente de alerta global reutilizable
@@ -101,7 +101,7 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
   - [ ] Añade filtros dinámicos por país y moneda
   - [ ] Implementa ordenación por columnas, incluyendo país y moneda
 - Implementa selección de idioma:
-  - [ ] Añade un selector de idioma en el navbar o en una ubicación prominente
+  - [x] Añade un selector de idioma en el navbar o en una ubicación prominente
 - Testing
   - [ ] Implementa tests unitarios y de integración con Cypress
 

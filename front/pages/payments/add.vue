@@ -1,31 +1,11 @@
 <template>
+  <Navbar :links="navbarLinks" />
   <div class="container mt-5 pt-4">
     <h1 class="display-4 mt-2 mb-4">{{ $t("payments") }}</h1>
 
     <div class="app-description-container text-center mb-5">
       <h2 class="mb-3">{{ $t("app_description") }}</h2>
       <div class="divider"></div>
-    </div>
-
-    <div>
-      <h2 class="h4 mb-3">{{ $t("main_functions") }}</h2>
-      <div class="d-flex justify-content-between">
-        <NuxtLink to="/payments" class="btn btn-corporate flex-fill m-2 p-2">
-          <div class="h5">{{ $t("list_payments") }}</div>
-        </NuxtLink>
-        <NuxtLink
-          to="/payments/add"
-          class="btn btn-corporate flex-fill m-2 p-2"
-        >
-          <div class="h5">{{ $t("add_payments") }}</div>
-        </NuxtLink>
-        <NuxtLink
-          to="/payments/edit"
-          class="btn btn-corporate flex-fill m-2 p-2"
-        >
-          <div class="h5">{{ $t("edit_payments") }}</div>
-        </NuxtLink>
-      </div>
     </div>
 
     <div>
@@ -166,9 +146,10 @@
 import { ref, onMounted } from "vue";
 import CountrySelector from "../../components/CountrySelector.vue";
 import { getCountriesCurrencyAndIso } from "../../utils/client_api_countries";
+import Navbar from "~/components/Navbar.vue";
 
 const { t } = useI18n();
-
+const navbarLinks = [{ to: "/payments", label: t("list_payments") }];
 const payment = ref({
   source_amount: null,
   source_currency: "",

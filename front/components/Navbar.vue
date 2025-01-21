@@ -4,7 +4,6 @@
     :style="{ backgroundColor: brandBackground }"
   >
     <div class="container-fluid">
-      <!-- Logo or Brand (Optional, can be passed as a prop or hardcoded) -->
       <router-link to="/" class="navbar-brand" :style="{ color: brandColor }"
         >PaymentApp</router-link
       >
@@ -36,14 +35,30 @@
               {{ link.label }}
             </NuxtLink>
           </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <select
+                v-model="selectedLanguage"
+                @change="changeLanguage"
+                class="form-select"
+              >
+                <option v-for="lang in languages" :key="lang" :value="lang">
+                  {{ lang.toUpperCase() }}
+                </option>
+              </select>
+            </div>
+          </li>
         </ul>
       </div>
+      <!-- Language selector dropdown -->
     </div>
   </nav>
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 import { defineProps } from "vue";
+import { useI18n } from "vue-i18n";
 
 // Props: Accept the links to be rendered in the navbar
 const props = defineProps({
@@ -52,10 +67,27 @@ const props = defineProps({
     required: true,
   },
 });
+const { locale } = useI18n();
 
-// Accessing CSS custom properties directly
+const languages = ["en", "es"];
+const selectedLanguage = ref("es");
+
+const changeLanguage = () => {
+  if (selectedLanguage.value) {
+    locale.value = selectedLanguage.value; // Update locale
+    localStorage.setItem("language", selectedLanguage.value); // Store language preference);
+  }
+};
+
 const brandBackground = "var(--zexel-pure-white)";
 const brandColor = "var(--zexel-persian-blue)";
+onMounted(() => {
+  const storedLang = localStorage.getItem("language");
+  if (storedLang) {
+    selectedLanguage.value = storedLang;
+    locale.value = storedLang;
+  }
+});
 </script>
 
 <style scoped>
@@ -69,6 +101,6 @@ const brandColor = "var(--zexel-persian-blue)";
 }
 
 .navbar-toggler-icon {
-  background-color: var(--zexel-pure-white); /* Toggler icon color */
+  background-color: var(--zexel-pure-white);
 }
 </style>
