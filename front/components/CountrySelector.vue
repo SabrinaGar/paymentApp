@@ -9,38 +9,43 @@
     >
       <option value="" disabled selected>{{ $t("select_placeholder") }}</option>
       <option
-        v-for="(country, key) in $props.countries"
+        v-for="(country, key) in countries"
         :key="key"
-        :value="country[$props.valueKey]"
+        :value="country[valueKey]"
       >
-        {{ country[$props.textKey] }}
+        {{ country[textKey] }}
       </option>
     </select>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    modelValue: String,
-    id: String,
-    label: String,
-    countries: Array,
-    loading: Boolean,
-    valueKey: {
-      type: String,
-      default: "iso2", // Default to 'iso' if not provided
-    },
-    textKey: {
-      type: String,
-      default: "name", // Default to 'country' if not provided
-    },
+<script setup>
+import { defineProps, defineEmits } from "vue";
+const props = defineProps({
+  modelValue: {
+    type: String,
+    required: true,
   },
-  methods: {
-    onInput(event) {
-      // Emit the update:modelValue event to update the parent component
-      this.$emit("update:modelValue", event.target.value);
-    },
+  id: String,
+  label: String,
+  countries: {
+    type: Array,
+    required: true,
   },
+  loading: Boolean,
+  valueKey: {
+    type: String,
+    default: "iso2",
+  },
+  textKey: {
+    type: String,
+    default: "name",
+  },
+});
+
+const emit = defineEmits(["update:modelValue"]);
+
+const onInput = (event) => {
+  emit("update:modelValue", event.target.value);
 };
 </script>
