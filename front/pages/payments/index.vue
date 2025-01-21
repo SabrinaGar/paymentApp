@@ -60,14 +60,11 @@ import { getPayments, removePayment } from "@/utils/client_api_zexel";
 import { useI18n } from "vue-i18n";
 import Navbar from "~/components/Navbar.vue";
 
-const navbarLinks = [
-  { to: "/payments", label: t("list_payments") },
-  { to: "/payments/add", label: t("add_payments") },
-];
-
 const payments = ref([]);
 const alert = ref(null);
 const { t } = useI18n();
+
+const navbarLinks = [{ to: "/payments/add", label: t("add_payments") }];
 
 onMounted(async () => {
   try {

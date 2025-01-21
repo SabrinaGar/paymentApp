@@ -38,6 +38,11 @@ export default defineI18nConfig(() => ({
       source_country: "Pais de origen",
       error_adding_payment: "Error al agregar el pago: {error}",
       select_placeholder: "Seleccionar...",
+      list_countries: "Listado de paises",
+      search_countries: "Buscar paises",
+      detail_countries: "Detalle de pais",
+      countries: "Paises",
+      name: "Nombre",
     },
     "en-us": {
       hi: "Hi! Welcome to the Zexel technology level test.",
@@ -73,6 +78,11 @@ export default defineI18nConfig(() => ({
       source_country: "Source country",
       error_adding_payment: "Error adding payment: {error}",
       select_placeholder: "Select...",
+      countries: "Countries",
+      list_countries: "List of countries",
+      search_countries: "Search countries",
+      detail_countries: "Country detail",
+      name: "Name",
     },
   },
 }));

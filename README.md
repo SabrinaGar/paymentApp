@@ -87,7 +87,7 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 
 - Implementa Navbar:
   - [x] Diseña y crea un navbar responsive con los enlaces principales
-  - [ ] Reemplaza los botones de navegación existentes por el nuevo navbar
+  - [x] Reemplaza los botones de navegación existentes por el nuevo navbar
 - Mejora Componente de Alerta:
   - [ ] Crea un componente de alerta global reutilizable
   - [ ] Implementa un sistema de colores para diferentes tipos de mensajes (error, éxito, información)
