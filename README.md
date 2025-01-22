@@ -89,8 +89,8 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
   - [x] Diseña y crea un navbar responsive con los enlaces principales
   - [x] Reemplaza los botones de navegación existentes por el nuevo navbar
 - Mejora Componente de Alerta:
-  - [ ] Crea un componente de alerta global reutilizable
-  - [ ] Implementa un sistema de colores para diferentes tipos de mensajes (error, éxito, información)
+  - [x] Crea un componente de alerta global reutilizable
+  - [x] Implementa un sistema de colores para diferentes tipos de mensajes (error, éxito, información)
   - [ ] Integra la visualización de mensajes de error provenientes de las APIs
 - Completa funcionalidades CRUD:
   - [ ] Implementa la funcionalidad de edición de pagos existentes
