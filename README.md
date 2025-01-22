@@ -91,7 +91,7 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 - Mejora Componente de Alerta:
   - [x] Crea un componente de alerta global reutilizable
   - [x] Implementa un sistema de colores para diferentes tipos de mensajes (error, éxito, información)
-  - [ ] Integra la visualización de mensajes de error provenientes de las APIs
+  - [x] Integra la visualización de mensajes de error provenientes de las APIs
 - Completa funcionalidades CRUD:
   - [ ] Implementa la funcionalidad de edición de pagos existentes
 - Optimiza campos ISO:

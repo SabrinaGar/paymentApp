@@ -10,6 +10,7 @@
 
     <div>
       <h2>{{ $t("add_payments") }}</h2>
+      <Alert ref="alert" />
       <form @submit.prevent="submitPayment">
         <div class="row mb-3">
           <div class="col-md-4">
@@ -137,16 +138,15 @@
         </button>
       </form>
     </div>
-
-    <Alert ref="alert" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
-import CountrySelector from "../../components/CountrySelector.vue";
+import CountrySelector from "~/components/CountrySelector.vue";
 import { getCountriesCurrencyAndIso } from "../../utils/client_api_countries";
 import Navbar from "~/components/Navbar.vue";
+import Alert from "~/components/Alert.vue";
 
 const { t } = useI18n();
 const navbarLinks = [{ to: "/payments", label: t("list_payments") }];
@@ -162,6 +162,8 @@ const payment = ref({
   receiver_full_name: "",
 });
 
+const errorMessages = ref([]);
+const successMessage = ref("");
 const alert = ref(null);
 const countries = ref([]); // Lista de países
 const loading = ref(false); // Estado de carg
@@ -171,6 +173,7 @@ onMounted(async () => {
     loading.value = true;
     countries.value = await getCountriesCurrencyAndIso();
   } catch (e) {
+    errorMessages.value.push(e.message);
     alert.value.error(e.message);
   } finally {
     loading.value = false;
@@ -178,7 +181,8 @@ onMounted(async () => {
 });
 const submitPayment = async () => {
   try {
-    // Make an API call to submit the payment
+    errorMessages.value = [];
+    successMessage.value = "";
     const response = await fetch("http://localhost:8000/api/payments/", {
       method: "POST",
       headers: {
@@ -188,15 +192,27 @@ const submitPayment = async () => {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorData = await response.json();
+      if (errorData.non_field_errors) {
+        errorMessages.value = errorData.non_field_errors;
+        alert.value.error(errorData.non_field_errors.join(", "));
+      } else {
+        errorMessages.value.push(
+          t("error_adding_payment", {
+            error: errorData.detail || "Unknown error",
+          })
+        );
+        alert.value.error(errorMessages.value.join(", "));
+      }
+      return;
     }
 
     const result = await response.json();
     console.log("Payment added:", result);
 
-    alert.value.message(t("payment_added_successfully"));
+    successMessage.value(t("payment_added_successfully"));
+    alert.value.message(successMessage.value);
 
-    // Reset the form after successful submission
     payment.value = {
       source_amount: null,
       source_currency: "",
@@ -209,7 +225,10 @@ const submitPayment = async () => {
       receiver_full_name: "",
     };
   } catch (error) {
-    alert.value.error(t("error_adding_payment", { error: error.message }));
+    errorMessages.value.push(
+      t("error_adding_payment", { error: error.message })
+    );
+    alert.value.error(errorMessages.value.join(", "));
   }
 };
 </script>
