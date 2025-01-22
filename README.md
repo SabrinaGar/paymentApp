@@ -86,22 +86,22 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
 ### 🎨 Frontend
 
 - Implementa Navbar:
-  - [ ] Diseña y crea un navbar responsive con los enlaces principales
-  - [ ] Reemplaza los botones de navegación existentes por el nuevo navbar
+  - [x] Diseña y crea un navbar responsive con los enlaces principales
+  - [x] Reemplaza los botones de navegación existentes por el nuevo navbar
 - Mejora Componente de Alerta:
-  - [ ] Crea un componente de alerta global reutilizable
-  - [ ] Implementa un sistema de colores para diferentes tipos de mensajes (error, éxito, información)
-  - [ ] Integra la visualización de mensajes de error provenientes de las APIs
+  - [x] Crea un componente de alerta global reutilizable
+  - [x] Implementa un sistema de colores para diferentes tipos de mensajes (error, éxito, información)
+  - [x] Integra la visualización de mensajes de error provenientes de las APIs
 - Completa funcionalidades CRUD:
   - [ ] Implementa la funcionalidad de edición de pagos existentes
 - Optimiza campos ISO:
-  - [ ] Convierte los campos de país y moneda en selectores desplegables
-  - [ ] Asegúrate de que se envíen los códigos ISO correctos al backend
+  - [x] Convierte los campos de país y moneda en selectores desplegables
+  - [x] Asegúrate de que se envíen los códigos ISO correctos al backend
 - Mejora la Tabla de Pagos:
   - [ ] Añade filtros dinámicos por país y moneda
   - [ ] Implementa ordenación por columnas, incluyendo país y moneda
 - Implementa selección de idioma:
-  - [ ] Añade un selector de idioma en el navbar o en una ubicación prominente
+  - [x] Añade un selector de idioma en el navbar o en una ubicación prominente
 - Testing
   - [ ] Implementa tests unitarios y de integración con Cypress
 

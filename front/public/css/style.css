@@ -3,80 +3,94 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 :root {
-    /* brand color */
-    --zexel-admin-background: #a6e1ff;
-    --zexel-client-background: #7070db;
-    --zexel-clientmanager-background: #9470db;
-    --zexel-influencer-background: #ccccff;
-    --zexel-azure: #66ccff;
-    --zexel-persian-blue: #3333cc;
-    --zexel-strong-violet: #6633cc;
-    --zexel-electric-lilac: #9999ff;
-    --zexel-crayola: #ee5d7c;
-    --zexel-stroke-cards: #d8d8d8;
-    --zexel-placeholder: #c4c4c4;
-    --zexel-disabled: #c9c1ee;
-    --zexel-success: #2dce89;
-    --zexel-error: #f5365c;
-    --zexel-subtle-text: #4c5c76;
-    --zexel-pure-white: #ffffff;
-    --zexel-blackhole: #000000;
-    --zexel-success-green: #2dce89;
-    /* end brand color */
+  /* brand color */
+  --zexel-admin-background: #a6e1ff;
+  --zexel-client-background: #7070db;
+  --zexel-clientmanager-background: #9470db;
+  --zexel-influencer-background: #ccccff;
+  --zexel-azure: #66ccff;
+  --zexel-persian-blue: #3333cc;
+  --zexel-strong-violet: #6633cc;
+  --zexel-electric-lilac: #9999ff;
+  --zexel-crayola: #ee5d7c;
+  --zexel-stroke-cards: #d8d8d8;
+  --zexel-placeholder: #c4c4c4;
+  --zexel-disabled: #c9c1ee;
+  --zexel-success: #2dce89;
+  --zexel-error: #f5365c;
+  --zexel-subtle-text: #4c5c76;
+  --zexel-pure-white: #ffffff;
+  --zexel-blackhole: #000000;
+  --zexel-success-green: #2dce89;
+  /* end brand color */
 }
 
 * {
-    color: var(--zexel-subtle-text);
-    font-family: "Nunito Sans";
+  color: var(--zexel-subtle-text);
+  font-family: "Nunito Sans";
 }
 
 .app-description-container {
-    background-color: var(--zexel-stroke-cards);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--zexel-stroke-cards);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .divider {
-    height: 3px;
-    width: 50px;
-    background-color: var(--zexel-pure-white);
-    margin: 0 auto;
+  height: 3px;
+  width: 50px;
+  background-color: var(--zexel-pure-white);
+  margin: 0 auto;
 }
 
-
 .btn-corporate {
-    background-color: var(--zexel-azure);
-    color: var(--zexel-pure-white);
-    border-color: var(--zexel-azure);
+  background-color: var(--zexel-azure);
+  color: var(--zexel-pure-white);
+  border-color: var(--zexel-azure);
 }
 
 .btn-corporate:hover {
-    background-color: var(--zexel-persian-blue);
-    color: var(--zexel-pure-white);
-    border-color: var(--zexel-persian-blue);
+  background-color: var(--zexel-persian-blue);
+  color: var(--zexel-pure-white);
+  border-color: var(--zexel-persian-blue);
 }
 
 .alert {
-    position: relative;
-    padding-right: 30px;
+  position: relative;
+  padding-right: 30px;
 }
 
 .close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.75rem 1.25rem;
-    color: inherit;
-    background: transparent;
-    border: 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-    opacity: 0.5;
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.75rem 1.25rem;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .close:hover {
-    opacity: 1;
+  opacity: 1;
+}
+
+.form-select {
+  border: none;
+}
+
+.form-select:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
 }
