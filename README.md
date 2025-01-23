@@ -93,7 +93,14 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
   - [x] Implementa un sistema de colores para diferentes tipos de mensajes (error, éxito, información)
   - [x] Integra la visualización de mensajes de error provenientes de las APIs
 - Completa funcionalidades CRUD:
+
   - [ ] Implementa la funcionalidad de edición de pagos existentes
+        Pasos a seguir:
+        -Agregar botón de editar en tabla de pagos.
+        -Crear edit.vue dentro de payments con formulario similar a add.vue
+        -llamar a GET /payments/{id} para mostrar en el formulario el pago a editar.
+        -Llamar a PUT /payments/{id} para guardar actualizacion de pagos
+
 - Optimiza campos ISO:
   - [x] Convierte los campos de país y moneda en selectores desplegables
   - [x] Asegúrate de que se envíen los códigos ISO correctos al backend
