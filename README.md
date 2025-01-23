@@ -105,8 +105,13 @@ Para más detalles sobre la implementación y cómo ejecutar el proyecto, consul
   - [x] Convierte los campos de país y moneda en selectores desplegables
   - [x] Asegúrate de que se envíen los códigos ISO correctos al backend
 - Mejora la Tabla de Pagos:
+
   - [ ] Añade filtros dinámicos por país y moneda
   - [ ] Implementa ordenación por columnas, incluyendo país y moneda
+        Pasos a seguir:
+        -Agregar filtros en el backend con queryset en PaymentViewSet
+        -Refactor de tabla de pagos para agregar filtros
+
 - Implementa selección de idioma:
   - [x] Añade un selector de idioma en el navbar o en una ubicación prominente
 - Testing
